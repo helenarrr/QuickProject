@@ -1,4 +1,23 @@
 body {
-  background-color: #202020;
+  background-color: #f1e3e3;
   margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #63625b;
+  padding: 20px 10px;
+}
+
+.registration {
+  background-color: #272725;
 }
