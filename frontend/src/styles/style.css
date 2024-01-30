@@ -82,13 +82,24 @@ nav {
 
 @media (max-width: 600px) {
 
-  /* Adjust the size for smaller screens */
   .small-square {
     width: 100%;
-    /* Make the width 100% for smaller screens */
     height: 30px;
-    /* Adjust the height as needed */
   }
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 .site-footer {
