@@ -9,17 +9,93 @@ nav {
   align-items: center;
 }
 
-header {
+.site-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #63625b;
+  background-color: #7c7c77;
   padding: 20px 10px;
 }
 
 .registration {
   background-color: #272725;
-  width: 120px;
+  width: 180px;
+  height: 56px;
+  border-radius: 10px;
+  margin-right: 80px;
+}
+
+
+.container {
+  display: table;
+  width: 90%;
+  table-layout: fixed;
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.text-container {
+  display: table-cell;
+  border-radius: 10px;
+
+}
+
+.square {
+  display: table-cell;
+  background-color: #7c7c77;
+  border-radius: 10px;
+}
+
+.container-small-square {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+
+.small-square {
+  width: calc(48% - 10px);
+  height: 300px;
+  background-color: #7c7c77;
+  margin: 10px;
+  margin-right: 30px;
+  margin-left: 0px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.submit-request {
+  background-color: #272725;
+  width: 262px;
   height: 40px;
+  border-radius: 10px;
+  margin-right: 80px;
+  margin-left: 20px;
+  color: azure;
+}
+
+.text-small-square {
+  margin-left: 20px;
+  color: azure;
+}
+
+@media (max-width: 600px) {
+
+  /* Adjust the size for smaller screens */
+  .small-square {
+    width: 100%;
+    /* Make the width 100% for smaller screens */
+    height: 30px;
+    /* Adjust the height as needed */
+  }
+}
+
+.site-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #7c7c77;
+  padding: 45px 0 20px;
 }
