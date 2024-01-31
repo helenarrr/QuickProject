@@ -1,0 +1,27 @@
+spring:
+  jackson:
+    visibility:
+      # Required for deserialization of classes without setters
+      # After migration to Java 17 such a classes can be replaced by records
+      # And this setting could be removed
+      field: any
+    serialization:
+      FAIL_ON_EMPTY_BEANS : false
+  jpa:
+    open-in-view: false
+  flyway:
+    enabled: true
+      # table: flyway_schema_history
+
+
+
+    #flyway:
+  #  enabled: true
+    # table: flyway_schema_history
+
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/pet}
+    username: ${POSTGRES_USER:user}
+    password: ${POSTGRES_PASS:password}
+  data.rest.basePath: /api
+
