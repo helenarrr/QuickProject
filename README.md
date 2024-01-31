@@ -6,9 +6,9 @@
 [Основные команды Docker](https://tproger.ru/translations/top-10-docker-commands):
 ```
 docker ps -a : посмотреть все контейнеры
-docker stop topjava_db : остановить наш контейнер
-docker start topjava_db : запустить его
-docker rm topjava_db : удалить
+docker stop pet_db : остановить наш контейнер
+docker start pet_db : запустить его
+docker rm pet_db : удалить
 docker help : справка по командам
 ```
 
