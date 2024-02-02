@@ -1,19 +1,28 @@
 package com.QuickProject.QuickProjectApp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
+@Builder
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "users")
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private UUID id;
 
     @Column(name = "login")
     private String login;
@@ -43,6 +52,9 @@ public class Users {
     private String role;
 
     @Column(name = "photo")
-    private Byte[] photo;
+    private byte[] photo;
 
+    @Builder.Default
+    @OneToMany(mappedBy = "user")
+    private List<Journal> journal = new ArrayList<>();
 }
