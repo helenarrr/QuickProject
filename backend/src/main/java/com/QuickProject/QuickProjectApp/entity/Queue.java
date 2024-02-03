@@ -1,6 +1,5 @@
 package com.QuickProject.QuickProjectApp.entity;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 import jakarta.persistence.*;
@@ -13,31 +12,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "journal")
 @Data
-public class Journal {
+@Table(name = "queue")
+public class Queue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne
+    @PrimaryKeyJoinColumn
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    private Project project;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "project_role_id")
     private ProjectRole projectRole;
 
-    @Column(name = "addind_at")
-    private LocalDateTime addind_at;
-
-    @Column(name = "finished_at")
-    private LocalDateTime finished_at;
+    @Column(name = "checked")
+    private Boolean checked;
 
 }

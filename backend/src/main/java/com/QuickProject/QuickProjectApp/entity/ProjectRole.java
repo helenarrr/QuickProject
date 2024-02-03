@@ -1,6 +1,5 @@
 package com.QuickProject.QuickProjectApp.entity;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -15,18 +14,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "projects_roles")
 @Data
-@Table(name = "projects")
-public class Project {
+public class ProjectRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private UUID id;
-
-    @OneToOne
-    @JoinColumn(name = "user_id") //айди владельца(создателя проекта)
-    private User user;
 
     @Column(name = "name")
     private String name;
@@ -34,22 +29,16 @@ public class Project {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "enable")
-    private Boolean enable;
-
-    @Column(name = "created_at")
-    private LocalDateTime created_at;
-
-    @Column(name = "closed_at")
-    private LocalDateTime closed_at;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
 
     @Builder.Default
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "projectRole")
     private List<Journal> journal = new ArrayList<>();
 
-    @Builder.Default
-    @OneToMany(mappedBy = "project")
-    private List<ProjectRole> projectRoles = new ArrayList<>();
+    @OneToOne(mappedBy = "projectRole")
+    private Queue queue;
 
 
 }

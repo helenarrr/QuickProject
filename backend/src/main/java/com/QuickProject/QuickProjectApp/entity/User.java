@@ -1,8 +1,10 @@
 package com.QuickProject.QuickProjectApp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "users")
@@ -53,4 +57,9 @@ public class User {
     @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<Journal> journal = new ArrayList<>();
+
+    @OneToOne(mappedBy = "user")
+    private Project project;
+
+
 }
