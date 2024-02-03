@@ -16,16 +16,16 @@ create table if not exists users
 create table if not exists projects
 (
     id uuid not null primary key,
-    user_id uuid not null,
+    creator_id uuid not null,
     name varchar(100) not null,
     description varchar(1000) not null,
     enable boolean not null default true,
     created_at timestamp not null,
     closed_at timestamp not null,
-    foreign key (user_id) references users (id) on delete cascade
+    foreign key (creator_id) references users (id) on delete cascade
 );
 
-create unique index projects_unique_user_id_idx on projects (user_id);
+create unique index projects_unique_user_id_idx on projects (creator_id);
 
 create table if not exists projects_roles
 (
@@ -38,6 +38,7 @@ create table if not exists projects_roles
 
 create table if not exists queue
 (
+    id uuid not null primary key,
     user_id uuid not null,
     project_role_id uuid not null,
     checked boolean default false,
