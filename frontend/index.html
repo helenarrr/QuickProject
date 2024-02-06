@@ -41,7 +41,7 @@
         </div>
         <div class="square"></div>
     </div>
-    <div class="container-small-square">
+    <!-- <div class="container-small-square">
         <div class="small-square">
             <p class="text-small-square">Project name</p>
             <p class="text-small-square">Добро пожаловать в наш инновационный проект по раздельному сбору отходов! Мы
@@ -122,13 +122,27 @@
             </p>
             <button class="submit-request">Подать заявку</button>
         </div>
+    </div> -->
+    <div class="container-small-square" id="smallSquareContainer">
+        <p class="text-small-square">Project name</p>
+        <p class="text-small-square">Добро пожаловать в наш инновационный проект по раздельному сбору отходов! Мы
+            стремимся изменить мир к лучшему, предоставляя удобные и эффективные решения для сбора и утилизации
+            различных видов отходов. Наш проект ориентирован на создание платформы, которая будет содействовать
+            раздельному сбору отходов в различных сообществах. Мы верим, что каждый может внести свой вклад в
+            сохранение окружающей среды, и наша цель - сделать этот процесс максимально доступным и мотивирующим.
+        </p>
+        <button class="submit-request" id="button-submit-request">Подать заявку</button>
     </div>
+    <div class="pagination" id="pagination"></div>
+    <button onclick="prevPage()">&#8592;</button>
+    <button onclick="nextPage()">&#8594;</button>
     <footer class="site-footer">
         <div class="wrap-logo">
             <a href="#logo" class="logo">Quick Project</a>
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/c70c11a514.js" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
