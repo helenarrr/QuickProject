@@ -45,11 +45,17 @@ public class User {
     @Column(name = "created_at")
     private LocalDateTime created_at;
 
+    @Column(name = "tz")
+    private String tz;
+
     @Column(name = "enable")
     private Boolean enable;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "project_role")
+    private String project_role;
+
+    @Column(name = "portfolio_link")
+    private String portfolio_link;
 
     @Column(name = "photo")
     private byte[] photo;
@@ -58,8 +64,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Journal> journal = new ArrayList<>();
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "creator")
     private Project project;
-
 
 }

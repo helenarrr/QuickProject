@@ -25,8 +25,8 @@ public class Project {
     private UUID id;
 
     @OneToOne
-    @JoinColumn(name = "user_id") //айди владельца(создателя проекта)
-    private User user;
+    @JoinColumn(name = "creator_id") //айди владельца(создателя проекта)
+    private User creator;
 
     @Column(name = "name")
     private String name;
