@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Класс для работы с сущностью "user"
+*/
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

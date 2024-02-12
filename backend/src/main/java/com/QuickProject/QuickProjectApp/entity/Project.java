@@ -11,6 +11,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Класс для работы с сущностью "project"
+ */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

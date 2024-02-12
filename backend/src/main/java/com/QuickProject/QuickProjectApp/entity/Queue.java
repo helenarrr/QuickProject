@@ -8,6 +8,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Класс для работы с сущностью "queue"
+ */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

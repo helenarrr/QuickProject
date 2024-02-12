@@ -10,6 +10,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Класс для работы с сущностью "project_role"
+ */
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
