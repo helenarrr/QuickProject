@@ -23,9 +23,9 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private UUID id = UUID.randomUUID();
+
 
     @Column(name = "login")
     private String login;
@@ -36,8 +36,8 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "telegramm")
-    private String telegramm;
+    @Column(name = "telegram")
+    private String telegram;
 
     @Column(name = "phone")
     private String phone;
