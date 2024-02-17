@@ -2,7 +2,6 @@ package com.QuickProject.QuickProjectApp;
 
 import com.QuickProject.QuickProjectApp.entity.Project;
 import com.QuickProject.QuickProjectApp.entity.User;
-import com.QuickProject.QuickProjectApp.repository.ProjectRepository;
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
