@@ -23,9 +23,8 @@ import lombok.NoArgsConstructor;
 public class Project {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @OneToOne
     @JoinColumn(name = "creator_id") //айди владельца(создателя проекта)
