@@ -1,5 +1,6 @@
 package com.QuickProject.QuickProjectApp;
 
+import com.QuickProject.QuickProjectApp.dao.UserRepository;
 import com.QuickProject.QuickProjectApp.entity.User;
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
 import org.junit.jupiter.api.Test;
@@ -27,12 +28,8 @@ public class UserRepositoyTest {
         user.setCreated_at(LocalDateTime.now());
         user.setProject_role("test role");
         user.setTz("+3");
-//        user.setId(UUID.randomUUID());
-
-
         repository.saveAndFlush(user);
 
-//        assertThat(repository.findByLogin("test").size()).isEqualTo(1);
         assertThat(repository.findByLogin("test").get(0).getLogin()).isEqualTo("test");
     }
 }

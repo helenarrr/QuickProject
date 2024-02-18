@@ -21,7 +21,7 @@ create table if not exists projects
     description varchar(1000) not null,
     enable boolean not null default true,
     created_at timestamp not null,
-    closed_at timestamp not null,
+    closed_at timestamp,
     foreign key (creator_id) references users (id) on delete cascade
 );
 

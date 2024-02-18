@@ -20,9 +20,8 @@ import lombok.NoArgsConstructor;
 public class Queue {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @OneToOne
     @PrimaryKeyJoinColumn

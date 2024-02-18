@@ -22,9 +22,8 @@ import lombok.NoArgsConstructor;
 public class ProjectRole {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @Column(name = "name")
     private String name;

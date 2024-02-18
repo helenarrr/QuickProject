@@ -21,9 +21,8 @@ import lombok.NoArgsConstructor;
 public class Journal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id;
+    private UUID id = UUID.randomUUID();
 
     @ManyToOne
     @JoinColumn(name = "user_id")
