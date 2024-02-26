@@ -8,13 +8,13 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.2</version>
         <relativePath/>
-        <!-- lookup parent from repository -->
-    </parent>
+        <!-- lookup parent from repository --></parent>
     <groupId>com.QuickProject</groupId>
     <artifactId>QuickProjectApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>QuickProjectApp</name>
     <description>Team project, creating an application to search for pet projects</description>
+
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -24,6 +24,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
 
         <dependency>
@@ -41,7 +51,7 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>9.16.0</version>
+            <version>10.8.1</version>
         </dependency>
 
         <dependency>
@@ -60,18 +70,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>42.7.2</version>
         </dependency>
 
         <!-- Tests -->
@@ -80,6 +79,7 @@
             <artifactId>embedded-database-spring-test</artifactId>
             <version>2.5.0</version>
         </dependency>
+
         <dependency>
             <groupId>io.zonky.test</groupId>
             <artifactId>embedded-postgres</artifactId>

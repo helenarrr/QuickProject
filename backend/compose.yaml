@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+
+  dev_app:
+    container_name: qp_project
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      pet_db:
+        condition: service_healthy
+    links:
+      - pet_db
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pet_db:5432/qp
+      SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      APP_PORT: ${APP_PORT}
+    ports:
+      - "127.0.0.1:${APP_PORT}:${APP_PORT}"
+
+  pet_db:
+    image: postgres
+    container_name: pet_db
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: qp
+    ports:
+      - "127.0.0.1:${EXTERNAL_DB_PORT}:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d qp" ]
+      interval: 8s
+      timeout: 4s
+      retries: 4
