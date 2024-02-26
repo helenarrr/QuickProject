@@ -1,3 +1,5 @@
+server:
+  port: 8081
 spring:
   jackson:
     visibility:
@@ -12,7 +14,9 @@ spring:
   flyway:
     enabled: true
       # table: flyway_schema_history
-
+  data:
+    rest:
+      basePath: /api
 
 
     #flyway:

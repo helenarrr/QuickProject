@@ -14,7 +14,7 @@ docker help : справка по командам
 
 Под Windows можно также управлять запуском docker из DockerDesktop.
 
-#### Сборка и запуск проекта в Docker
+#### Сборка и запуск проекта сервера на Spring Boot в Docker
 
 - сборка запускается из папки backend командой :'docker build -t qp_spring .'
 - запуск: 'docker run -p 8080:8080 qp_spring'
