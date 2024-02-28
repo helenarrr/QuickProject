@@ -4,40 +4,38 @@ services:
 
   dev_app:
     image: pet:dev
-    container_name: qp_project
+    container_name: dev_app
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      pet_db:
+      dev_db:
         condition: service_healthy
     links:
-      - pet_db
+      - dev_db
     environment:
       SPRING_PROFILES_ACTIVE: dev
-      SPRING_DATASOURCE_URL: jdbc:postgresql://pet_db:5432/pet
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dev_db:5432/pet
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
-      SPRING_PARENT_DIRECTORY: ${PARENT_DIRECTORY}
+      SPRING_PARENT_DIRECTORY: /
       APP_PORT: ${APP_PORT}
-      JAVA_TOOL_OPTIONS: "-XX:MaxDirectMemorySize=256m"
     ports:
-      - "127.0.0.1:${APP_PORT}:${APP_PORT}"
+      - "${APP_PORT}:${APP_PORT}"
     volumes:
       - ${HOST_PARENT_DIRECTORY}:/pet
 
-  pet_db:
+  dev_db:
     image: postgres
-    container_name: pet_db
+    container_name: dev_db
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: pet
     ports:
-      - "127.0.0.1:${EXTERNAL_DB_PORT}:5432"
+      - "${EXTERNAL_DB_PORT}:5432"
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d pet" ]
       interval: 8s
       timeout: 4s
       retries: 4
-
