@@ -8,3 +8,4 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 #WORKDIR /app
 #COPY --from=build /app/target/QuickProjectApp.jar /app/QuickProjectApp.jar
 #CMD ["java", "-jar", "QuickProjectApp.jar"]
+
