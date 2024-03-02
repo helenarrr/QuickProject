@@ -14,6 +14,7 @@ services:
     links:
       - dev_db
     environment:
+      WAIT_HOSTS: dev_db:5432
       SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: jdbc:postgresql://dev_db:5432/pet
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
