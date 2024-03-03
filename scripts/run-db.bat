@@ -2,7 +2,7 @@
 
 echo Run local development version of a database for Quick Project Application
 
-docker create -p 5433:5432 --name dev_db ^
+docker create -p 5432:5432 --name dev_db ^
   -e POSTGRES_USER=pet ^
   -e POSTGRES_PASSWORD=password ^
   -e POSTGRES_DB=pet ^

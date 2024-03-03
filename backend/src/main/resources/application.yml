@@ -25,7 +25,7 @@ spring:
 
   datasource:
     url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/pet}
-    username: ${POSTGRES_USER:user}
+    username: ${POSTGRES_USER:pet}
     password: ${POSTGRES_PASS:password}
   data.rest.basePath: /api
 
