@@ -24,7 +24,6 @@ public class ProjectsRepositoyTest {
     void saveProject(){
         User user = new User();
         user.setEnable(true);
-        user.setLogin("test");
         user.setEmail("test@test.com");
         user.setTelegram("@test");
         user.setPassword("");

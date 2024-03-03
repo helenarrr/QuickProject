@@ -16,7 +16,7 @@ import java.util.UUID;
 @RepositoryRestResource(path="users")
 public interface UserRepository extends JpaRepository<User, UUID> {
     @Transactional(readOnly = true)
-    List<User> findByLogin(String login) throws DataAccessException;
+    List<User> findByEmail(String login) throws DataAccessException;
 
 
 }
