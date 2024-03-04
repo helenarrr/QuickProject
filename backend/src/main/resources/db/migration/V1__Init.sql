@@ -1,15 +1,14 @@
 create table if not exists users
 (
     id uuid not null primary key,
-    login varchar(100) not null unique,
     nickname varchar(100) ,
     email varchar(100) not null unique,
-    telegram varchar(100) not null unique,
+    telegram varchar(100) unique,
     phone varchar(15) unique,
     password varchar(30) not null,
     created_at timestamp not null,
     enable boolean not null default true,
-    project_role varchar(300) not null,
+    project_role varchar(300),
     photo bytea
 );
 

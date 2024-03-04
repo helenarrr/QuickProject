@@ -26,10 +26,6 @@ public class User {
     @Column(name = "id")
     private UUID id = UUID.randomUUID();
 
-
-    @Column(name = "login")
-    private String login;
-
     @Column(name = "nickname")
     private String nickname;
 
