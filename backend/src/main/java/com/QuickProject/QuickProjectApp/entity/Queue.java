@@ -2,6 +2,7 @@ package com.QuickProject.QuickProjectApp.entity;
 
 import java.util.UUID;
 
+import com.QuickProject.QuickProjectApp.entity.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

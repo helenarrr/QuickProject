@@ -2,20 +2,20 @@ version: '3.8'
 
 services:
 
-  dev_app:
+  pet_app:
     image: pet:dev
-    container_name: dev_app
+    container_name: pet_app
     build:
       context: .
       dockerfile: Dockerfile
     depends_on:
-      dev_db:
+      pet_db:
         condition: service_healthy
     links:
-      - dev_db
+      - pet_db
     environment:
       SPRING_PROFILES_ACTIVE: dev
-      SPRING_DATASOURCE_URL: jdbc:postgresql://dev_db:5432/pet
+      SPRING_DATASOURCE_URL: jdbc:postgresql://pet_db:5432/pet
       SPRING_DATASOURCE_USERNAME: ${DB_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
       SPRING_PARENT_DIRECTORY: /
@@ -25,9 +25,9 @@ services:
     volumes:
       - ${HOST_PARENT_DIRECTORY}:/pet
 
-  dev_db:
+  pet_db:
     image: postgres
-    container_name: dev_db
+    container_name: pet_db
     environment:
       POSTGRES_USER: ${DB_USERNAME}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
