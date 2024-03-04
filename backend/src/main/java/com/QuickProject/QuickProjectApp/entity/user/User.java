@@ -1,31 +1,36 @@
-package com.QuickProject.QuickProjectApp.entity;
+package com.QuickProject.QuickProjectApp.entity.user;
 
+import com.QuickProject.QuickProjectApp.entity.Journal;
+import com.QuickProject.QuickProjectApp.entity.Project;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Класс для работы с сущностью "user"
-*/
+ */
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Data
 @Table(name = "users")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @Column(name = "id")
     private UUID id = UUID.randomUUID();
-
 
     @Column(name = "login")
     private String login;
@@ -44,6 +49,11 @@ public class User {
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "user_role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+    Role userRole = Role.USER;
 
     @Column(name = "created_at")
     private LocalDateTime created_at;
@@ -70,4 +80,33 @@ public class User {
     @OneToOne(mappedBy = "creator")
     private Project project;
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return enable;
+    }
 }

@@ -1,6 +1,6 @@
 package com.QuickProject.QuickProjectApp.dao;
 
-import com.QuickProject.QuickProjectApp.entity.user.User;
+import com.QuickProject.QuickProjectApp.entity.User;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
