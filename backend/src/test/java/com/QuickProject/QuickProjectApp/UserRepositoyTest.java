@@ -21,7 +21,7 @@ public class UserRepositoyTest {
     void saveProject(){
         User user = new User();
         user.setEnable(true);
-        user.setEmail("test@test.com");
+        user.setEmail("test_user@test.com");
         user.setTelegram("@test");
         user.setPassword("");
         user.setCreated_at(LocalDateTime.now());
@@ -29,6 +29,6 @@ public class UserRepositoyTest {
         user.setTz("+3");
         repository.saveAndFlush(user);
 
-        assertThat(repository.findByEmail("test@test.com").get(0).getEmail()).isEqualTo("test@test.com");
+        assertThat(repository.findByEmail("test_user@test.com").get(0).getEmail()).isEqualTo("test_user@test.com");
     }
 }

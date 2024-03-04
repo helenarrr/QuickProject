@@ -32,7 +32,7 @@ public class ProjectRoleRepositoyTest {
 
         User user = new User();
         user.setEnable(true);
-        user.setEmail("test@test.com");
+        user.setEmail("test_user@test.com");
         user.setTelegram("@test");
         user.setPassword("");
         user.setCreated_at(LocalDateTime.now());
