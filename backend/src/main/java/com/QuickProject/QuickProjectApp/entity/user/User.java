@@ -1,36 +1,31 @@
-package com.QuickProject.QuickProjectApp.entity.user;
+package com.QuickProject.QuickProjectApp.entity;
 
-import com.QuickProject.QuickProjectApp.entity.Journal;
-import com.QuickProject.QuickProjectApp.entity.Project;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Класс для работы с сущностью "user"
- */
+*/
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Data
 @Table(name = "users")
-public class User implements UserDetails {
+public class User {
 
     @Id
     @Column(name = "id")
     private UUID id = UUID.randomUUID();
+
 
     @Column(name = "login")
     private String login;
@@ -68,9 +63,6 @@ public class User implements UserDetails {
     @Column(name = "photo")
     private byte[] photo;
 
-    @Enumerated(EnumType.STRING)
-    Role role;
-
     @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<Journal> journal = new ArrayList<>();
@@ -78,34 +70,4 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "creator")
     private Project project;
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return  List.of(new SimpleGrantedAuthority(role.name()));
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return enable;
-    }
 }
