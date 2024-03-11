@@ -1,4 +1,4 @@
-package auth;
+package com.QuickProject.QuickProjectApp.auth;
 
 
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RegisterRequest {
 
-    private String firstname;
+    private String nickname;
 
     private String email;
 

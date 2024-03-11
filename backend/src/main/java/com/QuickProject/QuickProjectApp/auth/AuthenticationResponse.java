@@ -1,4 +1,4 @@
-package auth;
+package com.QuickProject.QuickProjectApp.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

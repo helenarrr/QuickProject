@@ -31,10 +31,7 @@ public class User implements UserDetails {
     @Id
     @Column(name = "id")
     private UUID id = UUID.randomUUID();
-
-    @Column(name = "login")
-    private String login;
-
+    
     @Column(name = "nickname")
     private String nickname;
 
