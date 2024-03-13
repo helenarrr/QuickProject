@@ -29,6 +29,6 @@ public class UserRepositoyTest {
         user.setTz("+3");
         repository.saveAndFlush(user);
 
-        assertThat(repository.findByEmail("test_user@test.com").get(0).getEmail()).isEqualTo("test_user@test.com");
+        assertThat(repository.findByEmail("test_user@test.com").get().getEmail()).isEqualTo("test_user@test.com");
     }
 }

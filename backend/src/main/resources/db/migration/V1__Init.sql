@@ -1,3 +1,5 @@
+CREATE TYPE role AS ENUM ('USER', 'ADMIN');
+
 create table if not exists users
 (
     id uuid not null primary key,
@@ -9,6 +11,7 @@ create table if not exists users
     created_at timestamp not null,
     enable boolean not null default true,
     project_role varchar(300),
+    user_role role,
     photo bytea
 );
 

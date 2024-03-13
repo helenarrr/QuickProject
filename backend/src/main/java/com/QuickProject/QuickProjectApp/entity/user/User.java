@@ -50,7 +50,8 @@ public class User implements UserDetails {
     @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
     private Role role;
-    Role userRole = Role.USER;
+
+    Role anotherRole = Role.USER;
 
     @Column(name = "created_at")
     private LocalDateTime created_at;
