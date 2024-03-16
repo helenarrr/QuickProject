@@ -1,5 +1,5 @@
 body {
-  background-color: #f1e3e3;
+  background-color: #ffffff;
   margin: 0;
   font-family: Arial, sans-serif;
 }
@@ -14,65 +14,59 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #7c7c77;
+  background-color: #F1F5F9;
   padding: 20px 10px;
 }
 
-.registration {
-  background-color: #272725;
+.logIn {
+  background-color: #6366F1;
   width: 180px;
   height: 56px;
   border-radius: 10px;
   margin-right: 80px;
+  color: rgb(255, 255, 255);
+  border: none;
+  outline: none;
 }
 
-
 .container {
-  display: table;
-  width: 90%;
-  table-layout: fixed;
-  margin-top: 100px;
-  margin-left: 100px;
+  display: flex;
+  justify-content: center;
+  /* Выравнивание по горизонтали по центру */
+  align-items: center;
+  /* Выравнивание по вертикали по центру */
+  height: 100vh;
+  /* Высота контейнера будет равна высоте окна браузера */
+  margin: 0;
 }
 
 .text-container {
-  display: table-cell;
-  border-radius: 10px;
-
+  flex: 1;
+  /* даем .text-container возможность растягиваться */
 }
 
 .square {
-  display: table-cell;
-  background-color: #7c7c77;
-  border-radius: 10px;
+  /* width: 100%; */
+  /* height: 100%; */
 }
+
 
 .container-small-square {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 100px;
+  margin: 0 -5px;
 }
 
 .small-square {
-  width: calc(48% - 10px);
+  width: calc(30% - 10px);
   height: 300px;
-  background-color: #7c7c77;
-  margin: 10px;
-  margin-right: 30px;
+  background-color: #A5B4FC;
+  margin: 20px 0;
+  margin-right: 0px;
   margin-left: 0px;
   border-radius: 10px;
   box-sizing: border-box;
-}
-
-.submit-request {
-  background-color: #272725;
-  width: 262px;
-  height: 40px;
-  border-radius: 10px;
-  margin-right: 80px;
-  margin-left: 20px;
-  color: azure;
 }
 
 .text-small-square {
@@ -81,25 +75,123 @@ nav {
 }
 
 @media (max-width: 600px) {
-
   .small-square {
     width: 100%;
     height: 30px;
   }
 }
 
-.pagination {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
+#loadMoreButton {
+  display: block;
+  margin: 0 auto;
+  background-color: #C7D2FE;
+  border-radius: 5px;
+  border: none;
+  width: 202px;
+  height: 44px;
+  font-weight: bold;
 }
 
-.pagination button {
-  margin: 0 5px;
+.centered {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.input-container {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.input-container input {
+  width: 380px;
+  height: 40px;
+  margin-bottom: 20px;
+  border: 1px solid#94A3B8;
+  border-radius: 8px;
+}
+
+.input-container .button-eye-logIn {
+  position: absolute;
+  top: 40%;
+  right: 5px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container .button-eye-reg {
+  position: absolute;
+  top: 40%;
+  right: 40px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.modal-button {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+}
+
+.register-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #4F46E5;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #7c7c77;
 }
 
 .site-footer {
@@ -107,6 +199,6 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #7c7c77;
+  background-color: #F1F5F9;
   padding: 45px 0 20px;
 }
