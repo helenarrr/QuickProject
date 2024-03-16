@@ -1,32 +1,20 @@
 const container = document.getElementById('smallSquareContainer');
-const resultsPerPage = 8;
+const loadMoreButton = document.getElementById('loadMoreButton');
+const resultsPerPage = 12;
 let currentPage = 1;
 
-// Function to show the next page
-function nextPage() {
-    currentPage++;
-    showPage(currentPage);
-}
 
-// Function to show the previous page
-function prevPage() {
-    if (currentPage > 1) {
-        currentPage--;
-        showPage(currentPage);
-    }
-}
 
-// Function to show the logIN modal
 function showLogInModal() {
     const modal = document.getElementById('logInModal');
     modal.style.display = 'flex';
 }
-// Function to show the registration modal
+
 function showRegistrationModal() {
     const modal = document.getElementById('registrationModal');
     modal.style.display = 'flex';
 }
-// Function to close the modal
+
 function closeModal() {
     const modal = document.getElementById('logInModal');
     modal.style.display = 'none';
@@ -45,7 +33,7 @@ async function register() {
     };
 
     try {
-        const response = await fetch('URL/регистрация', { //добавить урлу сервера
+        const response = await fetch('http://localhost:5500/регистрация', { //добавить урлу сервера
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -81,7 +69,7 @@ async function login() {
     };
 
     try {
-        const response = await fetch('URL/авторизация', { //добавить урлу сервера
+        const response = await fetch('http://localhost:5500/авторизация', { //добавить урлу сервера
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -106,25 +94,108 @@ async function login() {
 }
 
 
-
-// Function to show the page and add the button to each container
 function showPage(pageNumber) {
     container.innerHTML = '';
 
-    for (let i = 0; i < resultsPerPage; i++) {
+    for (let i = 0; i < resultsPerPage * pageNumber; i++) {
         const smallSquare = document.createElement('div');
         smallSquare.classList.add('small-square');
-        smallSquare.textContent = `Item ${(pageNumber - 1) * resultsPerPage + i + 1}`;
+        smallSquare.textContent = `Название проекта ${i + 1}`;
         container.appendChild(smallSquare);
-
-
-        const submitButton = document.createElement('button');
-        submitButton.classList.add('submit-request');
-        submitButton.textContent = 'Подать заявку';
-        submitButton.addEventListener('click', showLogInModal);
-        smallSquare.appendChild(submitButton);
     }
 }
 
-// Show the initial page
+function loadMoreProjects() {
+    currentPage++;
+    showPage(currentPage);
+}
+
+loadMoreButton.addEventListener('click', loadMoreProjects);
+
+
 showPage(currentPage);
+
+// Получаем ссылки на поля ввода и кнопку входа
+const emailInput = document.getElementById('emailInput');
+const passwordInput = document.getElementById('passwordInput');
+const loginButton = document.getElementById('loginButton');
+
+// Функция для проверки введенных данных и изменения цвета кнопки входа
+function checkInputs() {
+    // Проверяем, заполнены ли оба поля ввода
+    const emailValue = emailInput.value.trim();
+    const passwordValue = passwordInput.value.trim();
+
+    if (emailValue !== '' && passwordValue !== '') {
+        // Если оба поля ввода заполнены, устанавливаем цвет кнопки входа
+        loginButton.style.backgroundColor = '#4F46E5';
+        loginButton.style.color = '#fff'; // Зеленый цвет, если все данные введены
+    } else {
+        // Если одно из полей ввода пустое, устанавливаем цвет кнопки по умолчанию
+        loginButton.style.backgroundColor = '#F1F5F9';
+        loginButton.style.color = '#94A3B8'; // Синий цвет, если не все данные введены
+    }
+}
+
+// Слушаем события ввода в поля ввода и вызываем функцию checkInputs
+emailInput.addEventListener('input', checkInputs);
+passwordInput.addEventListener('input', checkInputs);
+
+checkInputs();
+
+function togglePasswordVisibility() {
+    const passwordField = document.getElementById('passwordInput');
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+    } else {
+        passwordField.type = 'password';
+    }
+}
+
+function togglePasswordVisibility1() {
+    const passwordField = document.getElementById('passwordInputReg');
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+    } else {
+        passwordField.type = 'password';
+    }
+}
+
+function togglePasswordVisibility2() {
+    const passwordField = document.getElementById('passwordInputReg2');
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+    } else {
+        passwordField.type = 'password';
+    }
+}
+
+const emailInputReg = document.getElementById('emailInputReg');
+const passwordInputReg = document.getElementById('passwordInputReg');
+const passwordInputReg2 = document.getElementById('passwordInputReg2');
+const regButton = document.getElementById('regButton');
+
+// Функция для проверки введенных данных и изменения цвета кнопки входа
+function checkInputs2() {
+    // Проверяем, заполнены ли оба поля ввода
+    const emailValue = emailInputReg.value.trim();
+    const passwordValue = passwordInputReg.value.trim();
+    const passwordValue2 = passwordInputReg2.value.trim();
+
+    if (emailValue !== '' && passwordValue !== '' && passwordValue2 !== '') {
+        // Если оба поля ввода заполнены, устанавливаем цвет кнопки входа
+        regButton.style.backgroundColor = '#4F46E5';
+        regButton.style.color = '#fff'; // Зеленый цвет, если все данные введены
+    } else {
+        // Если одно из полей ввода пустое, устанавливаем цвет кнопки по умолчанию
+        regButton.style.backgroundColor = '#F1F5F9';
+        regButton.style.color = '#94A3B8'; // Синий цвет, если не все данные введены
+    }
+}
+
+// Слушаем события ввода в поля ввода и вызываем функцию checkInputs
+emailInputReg.addEventListener('input', checkInputs2);
+passwordInputReg.addEventListener('input', checkInputs2);
+passwordInputReg2.addEventListener('input', checkInputs2);
+
+checkInputs2();

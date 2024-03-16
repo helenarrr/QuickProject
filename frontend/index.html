@@ -14,10 +14,10 @@
 <body>
     <header class="site-header">
         <div class="wrap-logo">
-            <a href="#logo" class="logo">Quick Project</a>
+            <img src="/frontend/src/img/Header.svg" alt="Логотип header">
         </div>
         <nav>
-            <button class="logIn" onclick="showLogInModal()"><i class=" fa-regular fa-user"></i></button>
+            <button class="logIn" onclick="showLogInModal()">Войти</button>
         </nav>
     </header>
 
@@ -39,30 +39,38 @@
                 бескрайних возможностей, где каждый пэт-проект — шаг к вашему профессиональному и творческому росту!</p>
 
         </div>
-        <div class="square"></div>
+        <div class="square">
+            <img src="/frontend/src/img/Welcome.svg" alt="welcome img">
+        </div>
     </div>
     <div class="container-small-square" id="smallSquareContainer">
-        <p class="text-small-square">Project name</p>
-        <p class="text-small-square">Добро пожаловать в наш инновационный проект по раздельному сбору отходов! Мы
+        <div class="text-small-square">Добро пожаловать в наш инновационный проект по раздельному сбору отходов! Мы
             стремимся изменить мир к лучшему, предоставляя удобные и эффективные решения для сбора и утилизации
             различных видов отходов. Наш проект ориентирован на создание платформы, которая будет содействовать
             раздельному сбору отходов в различных сообществах. Мы верим, что каждый может внести свой вклад в
             сохранение окружающей среды, и наша цель - сделать этот процесс максимально доступным и мотивирующим.
-        </p>
+        </div>
     </div>
-    <div class="pagination" id="pagination"></div>
-    <button onclick="prevPage()">&#8592;</button>
-    <button onclick="nextPage()">&#8594;</button>
+    <button id="loadMoreButton"> <img src="/frontend/src/img/Icon_more_projects.svg" alt="button more projects"
+            class="centered">Больше
+        проектов</button>
+
 
     <div class="modal" id="logInModal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal()">&times;</button>
-            <!-- Add your login form content here -->
             <h2>Вход</h2>
-            <input type="email" class="modal-input" placeholder="Email">
-            <input type="password" class="modal-input" placeholder="Password">
-            <button class="modal-button">Логин</button>
-            <p>or</p>
+            <div class="input-container">
+                <input type="email" class="modal-input" id="emailInput" placeholder="Email">
+            </div>
+            <div class="input-container">
+                <input type="password" class="modal-input" id="passwordInput" placeholder="Password">
+                <button class="button-eye-logIn" onclick="togglePasswordVisibility()">
+                    <img src="/frontend/src/img/Icon_eye.svg" alt="Показать пароль">
+                </button>
+            </div>
+            <button class="modal-button" id="loginButton">Войти</button>
+            <p>или</p>
             <button class="register-button" onclick="showRegistrationModal()">Регистрация</button>
         </div>
     </div>
@@ -70,17 +78,34 @@
     <div class="modal" id="registrationModal">
         <div class="modal-content">
             <button class="close-button" onclick="closeModal()">&times;</button>
-            <!-- Add your registration form content here -->
             <h2>Регистрация</h2>
-            <input type="email" class="modal-input" placeholder="Email">
-            <input type="password" class="modal-input" placeholder="Password">
-            <button class="modal-button">Регистрация</button>
+            <div class="input-container">
+                <input type="email" class="modal-input" id="emailInputReg" placeholder="Email">
+            </div>
+            <div class="input-container">
+                <input type="password" class="modal-input" id="passwordInputReg" placeholder="Password">
+                <button class="button-eye-reg" onclick="togglePasswordVisibility1()">
+                    <img src="/frontend/src/img/Icon_eye.svg" alt="Показать пароль">
+                </button>
+            </div>
+            <div class="input-container">
+                <input type="password" class="modal-input" id="passwordInputReg2" placeholder="Repeat password">
+                <button class="button-eye-reg" onclick="togglePasswordVisibility2()">
+                    <img src="/frontend/src/img/Icon_eye.svg" alt="Показать пароль">
+                </button>
+            </div>
+            <label>
+                <input type="checkbox" id="agreementCheckbox">
+                Соглашаюсь с политикой обработки персональных данных
+            </label>
+            <button class="modal-button" id="regButton">Регистрация</button>
         </div>
     </div>
 
+
     <footer class="site-footer">
         <div class="wrap-logo">
-            <a href="#logo" class="logo">Quick Project</a>
+            <img src="/frontend/src/img/Footer.svg" alt="Логотип footer">
         </div>
     </footer>
     <script src="https://kit.fontawesome.com/c70c11a514.js" crossorigin="anonymous"></script>
