@@ -129,11 +129,11 @@ function checkInputs() {
     if (emailValue !== '' && passwordValue !== '') {
         // Если оба поля ввода заполнены, устанавливаем цвет кнопки входа
         loginButton.style.backgroundColor = '#4F46E5';
-        loginButton.style.color = '#fff'; // Зеленый цвет, если все данные введены
+        loginButton.style.color = '#fff';
     } else {
         // Если одно из полей ввода пустое, устанавливаем цвет кнопки по умолчанию
         loginButton.style.backgroundColor = '#F1F5F9';
-        loginButton.style.color = '#94A3B8'; // Синий цвет, если не все данные введены
+        loginButton.style.color = '#94A3B8';
     }
 }
 
@@ -185,11 +185,11 @@ function checkInputs2() {
     if (emailValue !== '' && passwordValue !== '' && passwordValue2 !== '') {
         // Если оба поля ввода заполнены, устанавливаем цвет кнопки входа
         regButton.style.backgroundColor = '#4F46E5';
-        regButton.style.color = '#fff'; // Зеленый цвет, если все данные введены
+        regButton.style.color = '#fff';
     } else {
         // Если одно из полей ввода пустое, устанавливаем цвет кнопки по умолчанию
         regButton.style.backgroundColor = '#F1F5F9';
-        regButton.style.color = '#94A3B8'; // Синий цвет, если не все данные введены
+        regButton.style.color = '#94A3B8';
     }
 }
 
