@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,8 +31,9 @@ public class User implements UserDetails {
 
     @Id
     @Column(name = "id")
-    private UUID id = UUID.randomUUID();
-    
+    @UuidGenerator
+    private UUID id;
+
     @Column(name = "nickname")
     private String nickname;
 
@@ -49,9 +51,8 @@ public class User implements UserDetails {
 
     @Column(name = "user_role")
     @Enumerated(EnumType.STRING)
-    private Role role;
-
-    Role anotherRole = Role.USER;
+    @Builder.Default
+    Role role = Role.USER;
 
     @Column(name = "created_at")
     private LocalDateTime created_at;
