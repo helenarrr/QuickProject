@@ -1,9 +1,3 @@
-const container = document.getElementById('smallSquareContainer');
-const loadMoreButton = document.getElementById('loadMoreButton');
-const resultsPerPage = 12;
-let currentPage = 1;
-
-
 
 function showLogInModal() {
     const modal = document.getElementById('logInModal');
@@ -93,17 +87,66 @@ async function login() {
     }
 }
 
+const container = document.getElementById('smallSquareContainer');
+const loadMoreButton = document.getElementById('loadMoreButton');
+const resultsPerPage = 12;
+let currentPage = 1;
 
 function showPage(pageNumber) {
-    container.innerHTML = '';
+    // Начальный и конечный индексы для текущей страницы
+    const startIndex = (pageNumber - 1) * resultsPerPage;
+    const endIndex = Math.min(startIndex + resultsPerPage, startIndex + resultsPerPage);
 
-    for (let i = 0; i < resultsPerPage * pageNumber; i++) {
+    // Очищаем контейнер только если начинаем новую страницу
+    if (startIndex === 0) {
+        container.innerHTML = '';
+    }
+
+    for (let i = startIndex; i < endIndex; i++) {
         const smallSquare = document.createElement('div');
         smallSquare.classList.add('small-square');
-        smallSquare.textContent = `Название проекта ${i + 1}`;
+
+        const projectTitle = document.createElement('div');
+        projectTitle.classList.add('project-title');
+        projectTitle.textContent = `Название проекта ${i + 1}`;
+
+        const projectDescription = document.createElement('div');
+        projectDescription.classList.add('project-description');
+        projectDescription.textContent = `\nНаш проект представляет собой инновационную платформу для обучения детей и подростков с использованием интерактивных игр и заданий.Мы объединяем новейшие технологии в области образования с уникальными методиками, разработанными специально для развития умственных способностей учащихся. Мы уверены, что наше инновационное решение поможет детям получить качественное образование и развить свой потенциал в самых различных областях знаний.\n`;
+
+        const descriptionHeader = document.createElement('div');
+        descriptionHeader.textContent = '\nНужен:';
+        descriptionHeader.style.marginBottom = '5px';
+        descriptionHeader.style.fontSize = '16px';
+        descriptionHeader.style.fontWeight = '600';
+
+        const projectRoles = document.createElement('div');
+        projectRoles.classList.add('project-roles');
+        projectRoles.style.display = 'flex';
+        projectRoles.insertAdjacentHTML('beforeend', `
+            <div style="margin-right: 10px; border: none; border-radius:26px; padding: 5px; background-color: #F1F5F9; font-family: Inter;"> Бэкенд</div>
+            <div style="margin-right: 10px; border: none; border-radius:26px; padding: 5px; background-color: #F1F5F9; font-family: Inter;"> Фронтенд</div>
+            <div style="margin-right: 10px; border: none; border-radius:26px; padding: 5px; background-color: #F1F5F9; font-family: Inter;"> QA</div>
+            <div style="margin-right: 10px; border: none; border-radius:26px; padding: 5px; background-color: #F1F5F9; font-family: Inter;"> Дизайнер</div>
+            <div style="border:none; border-radius:26px; padding: 8px; background-color: #F1F5F9; font-family: Inter;"> PM</div>
+    `);
+        smallSquare.appendChild(projectTitle);
+        smallSquare.appendChild(projectDescription);
+        projectDescription.appendChild(descriptionHeader);
+        smallSquare.appendChild(projectRoles);
+
         container.appendChild(smallSquare);
     }
 }
+
+function loadMoreProjects() {
+    currentPage++;
+    showPage(currentPage);
+}
+
+loadMoreButton.addEventListener('click', loadMoreProjects);
+
+showPage(currentPage);
 
 function loadMoreProjects() {
     currentPage++;

@@ -58,6 +58,13 @@ nav {
   margin: 0 -5px;
 }
 
+.small-square .project-title {
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: bold;
+  line-height: 28px;
+}
+
 .small-square {
   width: calc(30% - 10px);
   height: 300px;
@@ -67,6 +74,9 @@ nav {
   margin-left: 0px;
   border-radius: 10px;
   box-sizing: border-box;
+  white-space: pre-wrap;
+  font-family: Inter;
+  padding: 20px;
 }
 
 .text-small-square {
