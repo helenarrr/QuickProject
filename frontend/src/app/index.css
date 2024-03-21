@@ -1,0 +1,63 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 1680px;
+}
+img {
+  max-width: 100%;
+}
+:root {
+  --basic-black: #000;
+  --basic-white: #fff;
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  --brand-50: #eef2ff;
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600---main: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+  --brand-900: #312e81;
+  --status-teal-600: #0d9488;
+  --status-teal-400: #2dd4bf;
+  --status-teal-50: #f0fdfa;
+  --status-amber-600: #d97706;
+  --status-amber-400: #f59e0b;
+  --status-amber-50: #fef3c7;
+  --status-rose-600: #e11d48;
+  --status-rose-400: #fb7185;
+  --status-rose-50: #fff1f2;
+}
+
+/*.MuiButton-root:hover {*/
+/*  background-color: var(--brand-400);*/
+/*}*/
