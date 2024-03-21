@@ -3,8 +3,8 @@ import { Grid } from "@mui/material"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import { ProjectCard } from "@/components/ProjectCard/ProjectCard"
-import { SButtonLight } from "@/components/UI/Buttons/SButtonLight"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
+import { SButton } from "@/components/UI/Buttons/SButton"
 
 export default function Home() {
   return (
@@ -71,10 +71,14 @@ export default function Home() {
           </Grid>
         </Grid>
       </SContainer>
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <SButtonLight startIcon={<ExpandMoreIcon />}>
-          Больше проектов
-        </SButtonLight>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: 80 / 16 + "rem",
+        }}
+      >
+        <SButton startIcon={<ExpandMoreIcon />}>Больше проектов</SButton>
       </Box>
 
       {/*<div className="modal" id="logInModal">*/}
