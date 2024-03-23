@@ -35,3 +35,7 @@ docker help : справка по командам
 - сборка запускается из папки backend командой :'docker build -t qp_spring .'
 - запуск: 'docker run -p 8080:8080 qp_spring'
 
+### Документация на API
+
+Документация на API в формате OpenApi можно посмотреть по адресу http://localhost:8081/swagger-ui/index.html#
+Предварительно должны быть запущены docker-образы dev_db и dev_app. 
