@@ -5,10 +5,11 @@ create table if not exists users
     email varchar(100) not null unique,
     telegram varchar(100) unique,
     phone varchar(15) unique,
-    password varchar(30) not null,
+    password varchar(80) not null,
     created_at timestamp not null,
     enable boolean not null default true,
     project_role varchar(300),
+    user_role not null varchar(200),
     photo bytea
 );
 

@@ -1,7 +1,7 @@
 package com.QuickProject.QuickProjectApp;
 
 import com.QuickProject.QuickProjectApp.dao.UserRepository;
-import com.QuickProject.QuickProjectApp.entity.User;
+import com.QuickProject.QuickProjectApp.entity.user.User;
 import io.zonky.test.db.AutoConfigureEmbeddedDatabase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +29,6 @@ public class UserRepositoyTest {
         user.setTz("+3");
         repository.saveAndFlush(user);
 
-        assertThat(repository.findByEmail("test_user@test.com").get(0).getEmail()).isEqualTo("test_user@test.com");
+        assertThat(repository.findByEmail("test_user@test.com").get().getEmail()).isEqualTo("test_user@test.com");
     }
 }

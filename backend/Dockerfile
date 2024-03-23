@@ -1,4 +1,3 @@
-# Stage 1: Сборка приложения
 FROM maven:3.8.3-openjdk-17 AS build
 WORKDIR /app
 COPY pom.xml .
@@ -11,4 +10,3 @@ FROM openjdk:17
 WORKDIR /app
 COPY --from=build /app/target/QuickProjectApp-0.0.1-SNAPSHOT.jar /app/QuickProjectApp.jar
 CMD ["java", "-jar", "QuickProjectApp.jar"]
-
